@@ -11,10 +11,29 @@ export class Item {
 }
 
 export class GildedRose {
+
+    private itemNames = {
+        agedBrie: 'Aged Brie',
+        sulfuras: 'Sulfuras, Hand of Ragnaros',
+        backstagePasses: 'Backstage passes to a TAFKAL80ETC concert'
+    }
+    private maxQuality = 50;
+
+    private minQuality = 0;
+
+    private backStagePassesDoubleThresHold = 10;
+    private backStagePassesTripleThresHold = 5;
+    private defaultItemDoubleDecreaseThresHold = 0;
+
     items: Array<Item>;
+
 
     constructor(items = [] as Array<Item>) {
         this.items = items;
+    }
+
+    decreaseSellIn(item: Item) {
+        item.sellIn--
     }
 
     updateQuality() {
